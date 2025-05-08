@@ -50,7 +50,7 @@ export default function RootLayout() {
           },
         }}
       >
-        {tabs.map(({ name, title, icon }: any) => (
+        {tabs.reverse().map(({ name, title, icon }: any) => (
           <Tabs.Screen
             key={name}
             name={name}

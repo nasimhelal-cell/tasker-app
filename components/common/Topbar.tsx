@@ -4,7 +4,7 @@ import { View } from "react-native";
 
 const Topbar = () => {
   return (
-    <View className="flex-row items-center justify-between px-4">
+    <View className="flex-row items-center bg-red-500  px-4">
       <Image
         source={require("@/assets/images/avatar-small.png")}
         resizeMode="contain"
