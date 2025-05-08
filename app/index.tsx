@@ -1,6 +1,7 @@
 import Feather from "@expo/vector-icons/Feather";
 import { useNavigation } from "@react-navigation/native";
 import Checkbox from "expo-checkbox";
+import { Link } from "expo-router";
 import React, { useEffect, useRef, useState } from "react";
 import {
   Alert,
@@ -163,6 +164,9 @@ export default function SplashLoginScreen() {
             className="mr-2 rounded-sm"
           />
           <Text className="text-slate-700">Remember me</Text>
+          <Link href="/tasks">
+            <Text>Tasks</Text>
+          </Link>
         </View>
 
         {/* --- Login button --- */}
