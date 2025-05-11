@@ -80,7 +80,7 @@ const TabBarIcon = ({
 }) => {
   return (
     <View
-      className={`flex-row items-center gap-1 mt-12 justify-center rounded-full w-[100px] h-[45px] ${
+      className={`flex-row items-center gap-1 mt-5 justify-center rounded-full w-[100px] h-[45px] ${
         focused && "bg-white"
       }`}
     >
