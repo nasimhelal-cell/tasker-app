@@ -1,40 +1,40 @@
-import { NavigationProp, useNavigation } from "@react-navigation/native";
-import React from "react";
+import { DrawerActions } from "@react-navigation/native";
+import { Link, useNavigation } from "expo-router";
+import React, { useState } from "react";
 import { Image, TouchableOpacity, View } from "react-native";
 
 const Topbar = () => {
-  const navigation = useNavigation<NavigationProp<any>>();
-
-  const goToHome = () => {
-    navigation.navigate("home"); // ensure 'Home' route exists
-  };
-
-  const openMenu = () => {
-    console.log("Menu opened"); // replace with drawer or modal toggle
-  };
-
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navigation = useNavigation();
   return (
     <View
       style={{
         flexDirection: "row",
         alignItems: "center",
-        padding: 12,
+        paddingHorizontal: 17,
+        marginTop: 18,
         justifyContent: "space-between",
         backgroundColor: "#fff",
       }}
     >
-      <TouchableOpacity onPress={() => {}}>
+      <View
+        style={{
+          display: isMenuOpen ? "none" : "flex",
+        }}
+      >
         <Image source={require("@/assets/images/avatar-small.png")} />
-      </TouchableOpacity>
+      </View>
 
-      <TouchableOpacity onPress={goToHome}>
+      <Link href="/">
         <Image
           source={require("@/assets/images/logo-dark.png")}
           style={{ width: 120, height: 60, resizeMode: "contain" }}
         />
-      </TouchableOpacity>
+      </Link>
 
-      <TouchableOpacity onPress={openMenu}>
+      <TouchableOpacity
+        onPress={() => navigation.dispatch(DrawerActions.toggleDrawer())}
+      >
         <Image
           source={require("@/assets/images/menu.png")}
           style={{ resizeMode: "contain" }}

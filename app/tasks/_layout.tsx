@@ -13,12 +13,12 @@ const tabs = [
   {
     name: "favorites",
     title: "المفضلة",
-    icon: "heart",
+    icon: "heart-outline",
   },
   {
     name: "documents",
     title: "المستندات",
-    icon: "file",
+    icon: "file-outline",
   },
   {
     name: "profile",
