@@ -1,10 +1,12 @@
 import Search from "@/components/common/Search";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 import Icon from "@expo/vector-icons/Ionicons";
 import { useState } from "react";
 import {
   I18nManager,
   Image,
   ScrollView,
+  StyleSheet,
   Text,
   TextInput,
   TouchableOpacity,
@@ -121,14 +123,23 @@ const Tasks = () => {
         <Search placeholder="Search..." onChangeText={() => {}} value={""} />
 
         {/* filter icons */}
-        <TouchableOpacity className="mx-1  ml-auto">
-          <Icon name="time" size={24} color="#004861" />
+        <TouchableOpacity className="mx-1 ml-auto">
+          <MaterialCommunityIcons
+            name="share-circle"
+            size={32}
+            style={styles.icon}
+          />
         </TouchableOpacity>
         <TouchableOpacity className="mx-1">
-          <Icon name="time" size={24} color="#004861" />
+          <MaterialCommunityIcons
+            name="clock-time-four"
+            size={32}
+            style={styles.icon}
+          />
         </TouchableOpacity>
+
         <TouchableOpacity className="mx-1">
-          <Icon name="checkmark-circle" size={24} color="#004861" />
+          <Icon name="checkmark-circle" size={32} style={styles.icon} />
         </TouchableOpacity>
       </View>
 
@@ -144,16 +155,28 @@ const Tasks = () => {
       </ScrollView>
 
       {/* Chat Input Section */}
-      <View className="flex-row-reverse items-center px-4 py-2 border-t border-gray-200">
-        <TouchableOpacity className="mx-2">
-          <Icon name="share-social-outline" size={24} color="#000" />
-        </TouchableOpacity>
+      <View className="flex-row-reverse mb-2 items-center w-[95%] rounded-xl rounded-bl-none mx-auto border border-active/20 ">
         <TextInput
           placeholder="اكتب الرد هنا"
-          className="flex-1 bg-[#f5f5f5] rounded-xl px-4 py-2 text-right"
+          className="flex-1 px-4 py-4 h-full text-right"
           value={text}
           onChangeText={setText}
         />
+
+        <TouchableOpacity
+          disabled={text.trim() === ""}
+          onPress={() => {}}
+          className="rounded-full border border-active ml-2 p-2"
+        >
+          <Icon
+            name="attach"
+            size={24}
+            color="#004861"
+            style={{ transform: [{ rotate: "45deg" }] }}
+          />
+        </TouchableOpacity>
+
+        {/* send button */}
         <TouchableOpacity
           disabled={text.trim() === ""}
           onPress={() => {
@@ -172,11 +195,12 @@ const Tasks = () => {
               setText("");
             }
           }}
+          className="bg-active rounded-xl rounded-bl-none rounded-tr-none px-4 py-4"
         >
           <Icon
             name="send"
             size={24}
-            color="#004861"
+            color="#fff"
             style={{ transform: [{ rotate: "180deg" }] }}
           />
         </TouchableOpacity>
@@ -186,3 +210,10 @@ const Tasks = () => {
 };
 
 export default Tasks;
+
+const styles = StyleSheet.create({
+  icon: {
+    color: "#00232F",
+    fontSize: 40,
+  },
+});
