@@ -89,8 +89,7 @@ export default function SplashLoginScreen() {
     // 2) check if user exists
 
     // 3) navigate to home
-    navigateTo.replace("nav");
-    console.log(formData);
+    navigateTo.replace("tasks");
   };
 
   return (

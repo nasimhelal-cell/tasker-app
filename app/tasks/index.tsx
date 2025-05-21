@@ -1,3 +1,4 @@
+import ForwardSuccessModal from "@/components/common/ForwardSuccessModal";
 import Search from "@/components/common/Search";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import Icon from "@expo/vector-icons/Ionicons";
@@ -67,7 +68,7 @@ const ReplyMessage = ({
 
 const Tasks = () => {
   const [text, setText] = useState<string>("");
-
+  const [isModalVisible, setIsModalVisible] = useState(false);
   // mock data
   const [messages, setMessages] = useState<any[]>([
     {
@@ -116,6 +117,10 @@ const Tasks = () => {
           65289: رقم مهمة
         </Text>
       </View>
+      <ForwardSuccessModal
+        visible={isModalVisible}
+        onClose={() => setIsModalVisible(false)}
+      />
 
       {/* Search and Filter Icons */}
       <View className="flex-row items-center px-4 py-2">
@@ -138,7 +143,10 @@ const Tasks = () => {
           />
         </TouchableOpacity>
 
-        <TouchableOpacity className="mx-1">
+        <TouchableOpacity
+          className="mx-1"
+          onPress={() => setIsModalVisible(true)}
+        >
           <Icon name="checkmark-circle" size={32} style={styles.icon} />
         </TouchableOpacity>
       </View>
